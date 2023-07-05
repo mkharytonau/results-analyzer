@@ -1,0 +1,14 @@
+Этап 1:
+ - https://results.athlinks.com/event/1055360?from=0&limit=3
+ - https://results.athlinks.com/individual?bib=67&eventId=1055360&eventCourseId=2380377
+ 
+ - curl 'https://results.athlinks.com/event/1055360?from=0&limit=100' | jq -c '.[] | .interval.intervalResults[] | .bib' | tr -d '"'
+ - curl 'https://results.athlinks.com/individual?bib=67&eventId=1055360&eventCourseId=2380377' | jq -c -r '[.intervals[0].brackets[0].rank, .displayName, .bib, .intervals[0].pace.time.timeInMillis, .intervals[1].pace.time.timeInMillis, .intervals[2].pace.time.timeInMillis, .intervals[4].pace.time.timeInMillis, .intervals[6].pace.time.timeInMillis, .intervals[8].pace.time.timeInMillis] | @csv' | tr -d '"'
+
+Этап 2:
+ - https://results.athlinks.com/event/1055374?from=0&limit=3
+ - https://results.athlinks.com/individual?bib=67&eventId=1055374&eventCourseId=2380404
+
+Этап 3:
+ - https://results.athlinks.com/event/1055375?from=0&limit=3
+ - https://results.athlinks.com/individual?bib=67&eventId=1055375&eventCourseId=2380405 
