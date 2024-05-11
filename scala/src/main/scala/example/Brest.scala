@@ -7,14 +7,14 @@ import java.nio.file.{Files, OpenOption, Paths, StandardOpenOption}
 import java.nio.charset.StandardCharsets
 
 object Brest extends App {
-  val source = Source.fromFile("/Users/nik.v.kharitonov/Projects/results-analyzer/2024/Drogichin_Duathlon/sporttiming.csv")
-  val out = Paths.get("/Users/nik.v.kharitonov/Projects/results-analyzer/2024/Drogichin_Duathlon/sporttiming_formatted.csv")
+  val source = Source.fromFile("/Users/nik.v.kharitonov/Projects/results-analyzer/2024/Mogilev_Sprint/sporttiming.csv")
+  val out = Paths.get("/Users/nik.v.kharitonov/Projects/results-analyzer/2024/Mogilev_Sprint/sporttiming_formatted.csv")
 
   try {
     val formatted = source.mkString.split("\n") map { line =>
       val list = line.split(",").toList
       println(list)
-      require(list.size == 17)
+      require(list.size == 11)
       val formatted = list.map {
         case duration if duration.contains(":") => formatDuration(duration)
         case other => other
